@@ -1,0 +1,144 @@
+{
+    "dogs": [
+        {
+            "id": 0,
+            "image": "dogs/boston_bull.jpeg",
+            "base_breed": "terrier",
+            "breed": "Boston bull",
+            "name": "Hebe",
+            "gender": "male",
+            "availability": "08/25/2022",
+            "price": 300
+        },
+        {
+            "id": 1,
+            "image": "dogs/dingo.jpeg",
+            "base_breed": "other",
+            "breed": "Dingo",
+            "name": "Glazer",
+            "gender": "male",
+            "availability": "08/26/2022",
+            "price": 400
+        },
+        {
+            "id": 2,
+            "image": "dogs/pekinese.jpeg",
+            "base_breed": "other",
+            "breed": "Pekinese",
+            "name": "Eyebright",
+            "gender": "female",
+            "availability": "08/22/2022",
+            "price": 250
+        },
+        {
+            "id": 3,
+            "image": "dogs/bluetick.jpeg",
+            "base_breed": "other",
+            "breed": "Bluetick",
+            "name": "Much",
+            "gender": "female",
+            "availability": "08/30/2022",
+            "price": 250
+        },
+        {
+            "id": 4,
+            "image": "dogs/golden_retriever.jpeg",
+            "base_breed": "retriever",
+            "breed": "Golden retriever",
+            "name": "Force",
+            "gender": "female",
+            "availability": "09/10/2022",
+            "price": 300
+        },
+        {
+            "id": 5,
+            "image": "dogs/bedlington_terrier.jpeg",
+            "base_breed": "terrier",
+            "breed": "Bedlington terrier",
+            "name": "Trooper",
+            "gender": "female",
+            "availability": "08/02/2022",
+            "price": 300
+        },
+        {
+            "id": 6,
+            "image": "dogs/bedlington_terrier 2.jpeg",
+            "base_breed": "terrier",
+            "breed": "Bedlington terrier",
+            "name": "Bustler",
+            "gender": "female",
+            "availability": "08/30/2022",
+            "price": 500
+        },
+        {
+            "id": 7,
+            "image": "dogs/norfolk_terrier.jpeg",
+            "base_breed": "terrier",
+            "breed": "Norfolk terrier",
+            "name": "Bubbler",
+            "gender": "male",
+            "availability": "08/19/2022",
+            "price": 150
+        },
+        {
+            "id": 8,
+            "image": "dogs/wire-haired_fox_terrier.jpeg",
+            "base_breed": "terrier",
+            "breed": "Wire",
+            "name": "Rockdove",
+            "gender": "female",
+            "availability": "08/12/2022",
+            "price": 450
+        },
+        {
+            "id": 9,
+            "image": "dogs/lakeland_terrier0.jpeg",
+            "base_breed": "terrier",
+            "breed": "Lakeland terrier0",
+            "name": "Stubborn",
+            "gender": "female",
+            "availability": "09/01/2022",
+            "price": 225
+        },
+        {
+            "id": 10,
+            "image": "dogs/golden_retriever 2.jpeg",
+            "base_breed": "retriever",
+            "breed": "Golden retriever",
+            "name": "Yelp",
+            "gender": "female",
+            "availability": "08/27/2022",
+            "price": 275
+        },
+        {
+            "id": 11,
+            "image": "dogs/labrador_retriever.jpeg",
+            "base_breed": "retriever",
+            "breed": "Labrador retriever",
+            "name": "Killer",
+            "gender": "male",
+            "availability": "07/16/2022",
+            "price": 900
+        },
+        {
+            "id": 12,
+            "image": "dogs/golden_retriever 3.jpeg",
+            "base_breed": "retriever",
+            "breed": "Golden retriever",
+            "name": "Sky",
+            "gender": "male",
+            "availability": "08/12/2022",
+            "price": 100
+        },
+        {
+            "id": 13,
+            "image": "dogs/border_terrier.jpeg",
+            "base_breed": "terrier",
+            "breed": "Border terrier",
+            "name": "Sunbeam",
+            "gender": "male",
+            "availability": "08/12/2022",
+            "price": 100
+        }
+    ]
+}
