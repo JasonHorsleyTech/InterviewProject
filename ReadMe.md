@@ -22,7 +22,8 @@ We're looking for
 
 ### AppFavorite.vue
 ```
-Make the following change in Wrapper.vue
+ -- Make the following change in Wrapper.vue -- 
+
 <script>
 import App from "./AppRework.vue"
 // import App from "./AppFavorite.vue"
