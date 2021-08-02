@@ -142,10 +142,6 @@ export default {
     },
   },
 
-  methods: {
-    startCase,
-  },
-
   data() {
     return {
       dogs: [],

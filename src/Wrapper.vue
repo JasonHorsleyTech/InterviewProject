@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import App from "./AppRework.vue"
-// import App from "./AppFavorite.vue"
+// import App from "./AppRework.vue"
+import App from "./AppFavorite.vue"
 export default {
   components: {
     App
@@ -19,7 +19,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
