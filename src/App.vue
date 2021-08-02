@@ -4,28 +4,32 @@
       class="
         w-full
         bg-blue-200
-        flex
+        md:flex
         justify-between
         items-center
         px-12
-        rounded-b-3xl
-        shadow-lg
+        pb-4
+        md:py-1
+        md:rounded-b-3xl
+        shadow
+        z-20
+        sticky
       "
     >
-      <img class="h-16 py-2" src="./assets/logo.png" />
-      <p class="text-2xl cursor-pointer">
+      <img class="h-16 py-2 mx-auto" src="./assets/logo.png" />
+      <p class="w-full text-center md:text-right text-2xl cursor-pointer border-t pt-1 mt-1 md:pt-0 md:mt-0 md:border-t-0">
         <a href="#" class="hover:underline pr-4">Login</a>
         <a href="#" class="hover:underline">Sign Up</a>
       </p>
     </div>
 
-    <div class="mt-6 flex bg-gray-100 rounded-lg">
-      <div class="w-1/4 mr-8 p-6 rounded-lg">
+    <div class="-mt-1 pt-8 md:pt-2 md:mt-6 flex bg-gray-100 rounded-lg">
+      <div class="w-1/3 md:w-1/4 md:mr-8 p-2 md:p-6 rounded-lg">
         <!-- Breed selector -->
         <div class="w-full mb-6">
           <p class="text-xl border-b border-gray-400 mb-1 pb-0.5">Breed</p>
           <select
-            class="text-center mt-2 px-4 py-1 text-lg"
+            class="text-center mt-2 py-1 md:px-4 md:text-lg"
             v-model="breedFilter"
           >
             <option :value="null">All</option>
@@ -50,12 +54,12 @@
           </label>
         </div>
       </div>
-      <div class="w-3/4 border-l px-4">
+      <div class="w-2/3 md:w-3/4 border-l px-1 md:px-4">
         <!-- Dog loop -->
         <div
           v-for="(dog, index) in dogs"
           :key="index"
-          class="inline-block w-1/3 p-4 pb-6"
+          class="inline-block w-full md:w-1/2 lg:w-1/3 p-4 pb-6"
         >
           <div class="p-2 bg-white shadow-lg rounded-lg relative">
             <div
