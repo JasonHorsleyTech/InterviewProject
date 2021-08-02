@@ -44,9 +44,9 @@
           <p class="text-xl border-b border-gray-400 mb-1 pb-0.5">Breed</p>
           <select
             class="text-center mt-2 py-1 md:px-4 md:text-lg"
-            v-model="breedFilter"
+            @change="activeBreedFilter = $event.target.value"
           >
-            <option :value="null">All</option>
+            <option value="all">All</option>
             <option value="retriever">Retrievers</option>
             <option value="terrier">Terriers</option>
           </select>
@@ -56,46 +56,26 @@
         <div class="w-full mb-6">
           <p class="text-xl border-b border-gray-400 mb-1 pb-0.5">Gender</p>
           <label class="block text-lg">
-            <input type="radio" :value="null" v-model="genderFilter" /> Any
+            <input type="radio" @click="activeGenderFilter = 'any'" /> Any
           </label>
 
           <label class="block text-lg">
-            <input type="radio" value="male" v-model="genderFilter" /> Male
+            <input type="radio" @click="activeGenderFilter = 'male'" /> Male
           </label>
 
           <label class="block text-lg">
-            <input type="radio" value="female" v-model="genderFilter" /> Female
+            <input type="radio" @click="activeGenderFilter = 'female'" /> Female
           </label>
         </div>
       </div>
       <div class="w-2/3 md:w-3/4 border-l px-1 md:px-4">
         <!-- Dogs -->
         <div
-          v-for="(dog, index) in filteredDogs"
+          v-for="(dog, index) in dogs"
           :key="index"
           class="inline-block w-full md:w-1/2 lg:w-1/3 p-4 pb-6"
         >
-          <div class="p-2 bg-white shadow-lg rounded-lg relative">
-            <div
-              @click="favorite(dog)"
-              class="
-                absolute
-                right-0
-                top-0
-                p-2
-                m-4
-                z-20
-                bg-white
-                rounded-full
-                cursor-pointer
-                hover:bg-gray-100
-                hover:text-green-500
-              "
-            >
-              <!-- Logic for "favorited" or "isFavorited(dog)" or whathave you does not yet exist...  -->
-              <heart v-if="!favorited" class="h-6 w-6" />
-              <heart-filled v-else class="h-6 w-6" />
-            </div>
+          <div class="p-2 bg-white shadow-lg rounded-lg">
             <div
               class="w-full bg-gray-200 h-48 bg-top bg-cover bg-no-repeat"
               :style="`background-image: url('/src/assets/${dog.image}');`"
@@ -115,12 +95,7 @@
 import axios from "axios";
 import { startCase } from "lodash";
 
-import heart from "./components/svgs/heart.vue";
-import heartFilled from "./components/svgs/heartFilled.vue";
-
 export default {
-  components: { heart, heartFilled },
-
   props: {
     /**
      * Callable URL to return all available dogs
@@ -133,63 +108,53 @@ export default {
 
   async mounted() {
     const response = await axios.get(this.url);
+    this.originalDogs = response.data.dogs;
     this.dogs = response.data.dogs;
+  },
+
+  watch: {
+    activeBreedFilter(newValue) {
+      if (newValue === "all") {
+        this.dogs = this.originalDogs;
+      } else if (newValue == "retriever") {
+        this.dogs = this.originalDogs.filter((dog) => {
+          return dog.breed.toLowerCase().includes("retriever");
+        });
+      } else if (newValue == "terrier") {
+        this.dogs = this.originalDogs.filter((dog) => {
+          return dog.breed.toLowerCase().includes("terrier");
+        });
+      }
+    },
+
+    activeGenderFilter(newValue) {
+      if (newValue === "any") {
+        this.dogs = this.originalDogs;
+      } else if (newValue == "male") {
+        this.dogs = this.originalDogs.filter((dog) => {
+          return dog.gender == "male";
+        });
+      } else if (newValue == "female") {
+        this.dogs = this.originalDogs.filter((dog) => {
+          return dog.gender == "female";
+        });
+      }
+    },
   },
 
   methods: {
     startCase,
-
-    /**
-     * Add a dog to your "favorites" list, which
-     *    1. Bumps the to the start of the list
-     *    2. Prevents them from ever getting filtered out.
-     */
-    favorite(dog) {},
-  },
-
-  computed: {
-    filteredDogs() {
-      return this.dogs
-        .filter(
-          (dog) => dog.gender == this.genderFilter || this.genderFilter === null
-        )
-        .filter(
-          (dog) =>
-            dog.base_breed == this.breedFilter || this.breedFilter === null
-        );
-    },
   },
 
   data() {
     return {
-      /**
-       * Available dogs
-       *
-       * @type {Array} (check /fixtures/dogs.json)
-       *        .id: Integer
-       *        .image: String
-       *        .base_breed: String ['terrier', 'retriever', 'other']
-       *        .breed: String -- ['Golden retriever', 'English bull terrier', ...]
-       *        .name: String
-       *        .gender: String -- ['male', 'female']
-       *        .availability: DateString -- 'dd/mm/yyyy
-       *        .price: Integer
-       */
       dogs: [],
 
-      /**
-       * Gender to filter on
-       *
-       * @type {?String}
-       */
-      genderFilter: null,
+      originalDogs: [],
 
-      /**
-       * Breed to filter on
-       *
-       * @type {?String}
-       */
-      breedFilter: null,
+      activeBreedFilter: "all",
+
+      activeGenderFilter: "any",
     };
   },
 };

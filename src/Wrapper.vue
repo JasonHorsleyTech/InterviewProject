@@ -5,9 +5,8 @@
 </template>
 
 <script>
-// import App from "./AppBasic.vue"
-// import App from "./AppMedium.vue"
-import App from "./AppAdvanced.vue"
+// import App from "./AppRework.vue"
+import App from "./AppFavorite.vue"
 export default {
   components: {
     App

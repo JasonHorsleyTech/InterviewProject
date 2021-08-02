@@ -1,18 +1,23 @@
 ## Interview questions
 
 (Everything is inside App.vue)
+The app gets a list of dogs from the passed in URL when it is first mounted.
 
-#### AppBasic
+### AppRework
 
-The app gets a list of dogs from the passed in URL when it is first mounted. There are currently two filters that change the genderFilter and breedFilter variables in the data(), but they do not change the rendered list of dogs yet. How would you implement? 
+This app has two working filters (breed and gender). How would you improve this code?
 
-#### AppMedium
+We're looking for
+* Remove the watch
+* Use a v-model on the inputs instead
+* Set the value of the "don't filter this" inputs to something falsy instead of the strings "any" or "all"
+* Use the v-model to return a computed array of dogs based on what filters are enabled
 
-I don't like this idea... It requires we start here then go to the "basic" version. Think of something else.
-<!-- Redo the filters as methods that trigger with event values, which manually manipulates the data().dogs array. Ask how this could be improved. -->
+### AppFavorite
 
-#### AppAdvanced
+A new feature request! When you click the "favorite" icon, it 
 
-(Add back in the favorite icon from the previous commit)
+1. Changes to a filled in versions.
+2. The favorite dogs will NEVER be filtered out based on breed or gender.
+3. (New feature request) We ALSO want your favorite dogs to be at the TOP of the list.
 
-A new feature request! When you click the "favorite" icon, it shows that dog at the top of your list, even if it should be filtered out by breed/gender.
