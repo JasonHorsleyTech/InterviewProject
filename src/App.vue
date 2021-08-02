@@ -55,36 +55,17 @@
         </div>
       </div>
       <div class="w-2/3 md:w-3/4 border-l px-1 md:px-4">
-        <!-- Dog loop -->
+        <!-- Dogs -->
         <div
           v-for="(dog, index) in dogs"
           :key="index"
           class="inline-block w-full md:w-1/2 lg:w-1/3 p-4 pb-6"
         >
-          <div class="p-2 bg-white shadow-lg rounded-lg relative">
+          <div class="p-2 bg-white shadow-lg rounded-lg">
             <div
               class="w-full bg-gray-200 h-48 bg-top bg-cover bg-no-repeat"
               :style="`background-image: url('/src/assets/${dog.image}');`"
             />
-            <div
-              @click="favorite(dog)"
-              class="
-                absolute
-                right-0
-                top-0
-                p-2
-                m-4
-                z-20
-                bg-white
-                rounded-full
-                cursor-pointer
-                hover:bg-gray-100
-                hover:text-green-500
-              "
-            >
-              <heart class="h-6 w-6" />
-              <!-- <heart-filled class="h-6 w-6" /> -->
-            </div>
             <p class="text-2xl text-center py-2">{{ dog.name }}</p>
             <p>{{ startCase(dog.gender) }} {{ dog.breed }}</p>
             <p>Available {{ dog.availability }}</p>
@@ -98,13 +79,9 @@
 
 <script>
 import axios from "axios";
-import heart from "./components/svgs/heart.vue";
-import heartFilled from "./components/svgs/heartFilled.vue";
 import { startCase } from "lodash";
 
 export default {
-  components: { heart, heartFilled },
-
   props: {
     /**
      * Callable URL to return all available dogs
@@ -122,10 +99,6 @@ export default {
 
   methods: {
     startCase,
-
-    favorite(dog) {
-      console.log(dog);
-    },
   },
 
   data() {
